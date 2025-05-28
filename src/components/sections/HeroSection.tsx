@@ -1,12 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
+import Typed from "typed.js";
+import { Button } from '@heroui/button';
+
+
 
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const el = React.useRef<HTMLSpanElement | null>(null);
+  const typed = React.useRef<Typed | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const options = {
+      strings: [" Emmanuel Oluwatayese", "A Full Stack Developer", "A Software Engineer", "A Web Developer"],
+      typeSpeed: 100,
+      backSpeed: 50,
+      loop: true,
+    };
+    typed.current = new Typed(el.current as Element, options);
+
+    return () => {
+      if (typed.current) {
+        typed.current.destroy();
+      }
+    };
+  }, [])
+  
 
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById('about');
@@ -18,17 +41,20 @@ const HeroSection: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950"
+      className="min-h-screen mx-auto w-[80%] flex items-center justify-center relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950"
     >
       <div 
         className={`container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}
       >
+        <Button >Button</Button>
         <div className="flex flex-col items-center text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6">
             <span className="block">Hello, I'm</span>
-            <span className="block mt-2">Your Name</span>
+            <span className="block mt-2">
+              <span ref={el}></span>
+            </span>
           </h1>
 
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 rounded-full mb-6"></div>

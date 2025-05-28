@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContex';
 import { navItems } from '../../constants';
+import { useTheme } from '../../context/ThemeContex';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+console.log(theme);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +33,7 @@ const Header: React.FC = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-[80%] container mx-auto px-4 sm:px-6 lg:px-5">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex-shrink-0">
             <a href="#home" className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
