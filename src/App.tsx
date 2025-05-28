@@ -1,12 +1,12 @@
-import React from 'react';
-import { ThemeProvider } from './context/ThemeContext';
+// import React from 'react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/AboutSection';
 import SkillsSection from './components/sections/SkillsSection';
-import ProjectsSection from './components/sections/ProjectsSection';
 import ContactSection from './components/sections/ContactSection';
+import { ThemeProvider } from './context/ThemeContex';
+import ProjectsSection from './components/sections/ProjectSection';
 
 function App() {
   return (
