@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
-import { socialLinks } from '../../data';
+import { socialLinks } from '../../constants';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
