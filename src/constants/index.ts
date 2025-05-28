@@ -1,4 +1,4 @@
-import { NavItem, Project, Skill, SocialLink } from '../types';
+import type { NavItem, Project, Skill, SocialLink } from "../types";
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
