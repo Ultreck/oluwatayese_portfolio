@@ -1,5 +1,4 @@
 import React from 'react';
-import { socialLinks } from '../../data';
 import { 
   Github, 
   Linkedin, 
@@ -9,6 +8,7 @@ import {
   MapPin, 
   Phone 
 } from 'lucide-react';
+import { socialLinks } from '../../constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

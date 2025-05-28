@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { navItems } from '../../data';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContex';
+import { navItems } from '../../constants';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
