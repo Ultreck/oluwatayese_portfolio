@@ -1,16 +1,17 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { skills } from '../../data';
+import { skills } from '../../constants';
 
 const SkillsSection: React.FC = () => {
   // Group skills by category
-  const skillsByCategory = skills.reduce((acc, skill) => {
+  type Skill = typeof skills[number];
+  const skillsByCategory = skills.reduce<Record<string, Skill[]>>((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
     }
     acc[skill.category].push(skill);
     return acc;
-  }, {} as Record<string, typeof skills>);
+  }, {});
 
   // Format category names for display
   const formatCategoryName = (name: string) => {
