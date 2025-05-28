@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { projects } from '../../data';
+import { projects } from '../../constants';
 import { ExternalLink, Github } from 'lucide-react';
 
 const ProjectsSection: React.FC = () => {
@@ -19,7 +19,15 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {projects.map((project: {
+            id: string;
+            imageUrl: string;
+            title: string;
+            description: string;
+            tags: string[];
+            githubUrl?: string;
+            demoUrl?: string;
+          }) => (
             <div 
               key={project.id}
               className="group bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
@@ -59,14 +67,14 @@ const ProjectsSection: React.FC = () => {
                           <ExternalLink size={20} />
                         </a>
                       )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag: string, index: number) => (
+                    <span 
+                      key={index}
+                      className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}

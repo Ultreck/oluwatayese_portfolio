@@ -6,7 +6,7 @@ export interface NavItem {
 export interface Skill {
   name: string;
   level: number;
-  category: 'frontend' | 'backend' | 'design' | 'tools';
+  category: "frontend" | "backend" | "design" | "tools";
 }
 
 export interface Project {
@@ -19,6 +19,15 @@ export interface Project {
   githubUrl?: string;
 }
 
+export interface projectTag {
+  id: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  tags: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+}
 export interface SocialLink {
   platform: string;
   url: string;
